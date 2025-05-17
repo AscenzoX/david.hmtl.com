@@ -555,3 +555,439 @@ body {
     padding: 0.9rem 1.25rem;
   }
 }
+/* Contenedor fijo para los botones de navegación a la izquierda */
+.fixed-nav {
+  position: fixed;
+  top: 50%;
+  left: 20px; /* separación del borde izquierdo */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 1000;
+}
+
+/* Estilo para los botones dentro del menú fijo */
+.fixed-nav button {
+  background: var(--discord-blurple);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background 0.3s ease;
+  width: 140px;
+  text-align: center;
+}
+
+.fixed-nav button:hover {
+  background: var(--discord-pink);
+}
+.btn-discord {
+  background-color: #5865F2; /* color principal Discord */
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-discord:hover {
+  background-color: #7289DA; /* azul más claro al pasar el cursor */
+}
+@keyframes rgb-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px #ff0000, 0 0 10px #00ff00, 0 0 15px #0000ff;
+    border-color: #ff0000;
+  }
+  33% {
+    box-shadow: 0 0 5px #00ff00, 0 0 10px #0000ff, 0 0 15px #ff0000;
+    border-color: #00ff00;
+  }
+  66% {
+    box-shadow: 0 0 5px #0000ff, 0 0 10px #ff0000, 0 0 15px #00ff00;
+    border-color: #0000ff;
+  }
+}
+
+.btn-discord {
+  background-color: #5865F2;
+  color: white;
+  border: 2px solid #5865F2; /* Inicial border igual al fondo */
+  padding: 10px 18px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  animation: rgb-glow 4s infinite;
+}
+
+.btn-discord:hover {
+  background-color: #7289DA;
+  border-color: #7289DA; /* Cambio de border en hover */
+  box-shadow: 0 0 10px #7289DA, 0 0 20px #7289DA;
+  animation: none; /* Para que no parpadee cuando haces hover */
+}
+/* Animación para borde RGB en botones */
+@keyframes rgb-glow {
+  0%, 100% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
+    border-color: #ff0000;
+  }
+  33% {
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #0000ff, 0 0 30px #ff0000;
+    border-color: #00ff00;
+  }
+  66% {
+    box-shadow: 0 0 10px #0000ff, 0 0 20px #ff0000, 0 0 30px #00ff00;
+    border-color: #0000ff;
+  }
+}
+
+.btn-glowing {
+  border: 2px solid #fff;
+  animation: rgb-glow 4s infinite;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Animación para texto RGB */
+@keyframes rgb-glow-text {
+  0%, 100% {
+    text-shadow: 0 0 5px #ff0000, 0 0 10px #00ff00, 0 0 15px #0000ff;
+    color: #ff0000;
+  }
+  33% {
+    text-shadow: 0 0 5px #00ff00, 0 0 10px #0000ff, 0 0 15px #ff0000;
+    color: #00ff00;
+  }
+  66% {
+    text-shadow: 0 0 5px #0000ff, 0 0 10px #ff0000, 0 0 15px #00ff00;
+    color: #0000ff;
+  }
+}
+
+.text-glowing {
+  animation: rgb-glow-text 4s infinite;
+  font-weight: bold;
+}
+@keyframes rgb-border {
+  0%, 100% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
+    border-color: #ff0000;
+  }
+  33% {
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #0000ff, 0 0 30px #ff0000;
+    border-color: #00ff00;
+  }
+  66% {
+    box-shadow: 0 0 10px #0000ff, 0 0 20px #ff0000, 0 0 30px #00ff00;
+    border-color: #0000ff;
+  }
+}
+
+.container {
+  border: 3px solid #fff; /* inicial */
+  border-radius: 15px;
+  animation: rgb-border 4s infinite;
+  padding: 20px; /* para que el contenido no quede pegado al borde */
+}
+@keyframes rgb-border {
+  0%, 100% {
+    box-shadow: 0 0 10px #ff0000, 0 0 20px #00ff00, 0 0 30px #0000ff;
+    border-color: #ff0000;
+  }
+  33% {
+    box-shadow: 0 0 10px #00ff00, 0 0 20px #0000ff, 0 0 30px #ff0000;
+    border-color: #00ff00;
+  }
+  66% {
+    box-shadow: 0 0 10px #0000ff, 0 0 20px #ff0000, 0 0 30px #00ff00;
+    border-color: #0000ff;
+  }
+}
+
+/* Contenedor principal */
+.container {
+  border: 3px solid #fff;
+  border-radius: 15px;
+  animation: rgb-border 4s infinite;
+  padding: 20px;
+}
+
+/* Botones del navbar */
+.navbar a {
+  display: inline-block;
+  padding: 10px 16px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 2px solid #fff;
+  animation: rgb-border 4s infinite;
+  transition: background 0.3s ease, color 0.3s ease;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Hover del navbar */
+.navbar a:hover {
+  background-color: #5865F2; /* Azul estilo Discord */
+  color: #fff;
+}
+.testimonios {
+  text-align: center;
+  margin: 60px 0;
+  color: #fff;
+}
+
+.testimonios h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #5865F2;
+  text-shadow: 0 0 10px #5865F2;
+}
+
+.review-card {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid transparent;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 600px;
+  padding: 20px;
+  font-style: italic;
+  color: #ddd;
+  animation: rgb-border 5s infinite;
+}
+
+.review-card span {
+  display: block;
+  margin-top: 10px;
+  color: #ccc;
+  font-weight: bold;
+}
+.testimonios-lateral {
+  position: fixed;
+  top: 100px;
+  left: 0;
+  width: 250px;
+  background: rgba(30, 30, 30, 0.9);
+  color: white;
+  padding: 15px;
+  border-radius: 0 10px 10px 0;
+  box-shadow: 0 0 10px #5865F2;
+  z-index: 1000;
+  font-size: 14px;
+  animation: rgb-border 4s infinite;
+}
+
+.testimonios-lateral h3 {
+  margin-top: 0;
+  color: #5865F2;
+  text-align: center;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #5865F2;
+}
+
+.testimonios-lateral .review {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-left: 3px solid #5865F2;
+  border-radius: 6px;
+}
+
+.testimonios-lateral .review p {
+  margin: 0;
+  font-style: italic;
+}
+
+.testimonios-lateral .review span {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #ccc;
+}
+.quienes-somos-derecha {
+  position: fixed;
+  bottom: 150px; /* Antes 50px, ahora más arriba */
+  right: 0;
+  width: 250px;
+  background: rgba(35, 39, 42, 0.95);
+  color: white;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 10px #5865F2;
+  z-index: 1000;
+  font-size: 14px;
+  animation: rgb-border 4s infinite;
+}
+
+.quienes-somos-derecha h3 {
+  margin-top: 0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #5865F2;
+}
+
+.quienes-somos-derecha p {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #ddd;
+}
+/* Estilos para escritorio, bloque a la derecha un poco arriba */
+.quienes-somos-derecha {
+  position: fixed;
+  bottom: 150px; /* Ajusta para subir o bajar */
+  right: 0;
+  width: 250px;
+  background: rgba(35, 39, 42, 0.95);
+  color: white;
+  padding: 15px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: 0 0 10px #5865F2;
+  z-index: 1000;
+  font-size: 14px;
+  animation: rgb-border 4s infinite;
+}
+
+.quienes-somos-derecha h3 {
+  margin-top: 0;
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.2rem;
+  text-shadow: 0 0 5px #5865F2;
+}
+
+.quienes-somos-derecha p {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #ddd;
+}
+
+/* Adaptación para móvil */
+@media (max-width: 600px) {
+  .quienes-somos-derecha {
+    position: fixed;
+    bottom: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 90%;
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 20px;
+    box-shadow: 0 0 15px #5865F2;
+  }
+
+  .quienes-somos-derecha h3 {
+    font-size: 1.4rem;
+  }
+
+  .quienes-somos-derecha p {
+    font-size: 15px;
+  }
+}
+.bg-rocket {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.15;         /* Baja opacidad para que no opaque el contenido */
+  z-index: 0;            /* Detrás de todo */
+  pointer-events: none;  /* No interfiere con clics */
+  user-select: none;     /* No se puede seleccionar */
+  animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+  /* Reduce opacidad y tamaño del fondo para no saturar */
+  .bg-rocket {
+    opacity: 0.07;
+    height: 70vh;
+    object-position: center bottom;
+  }
+
+  /* Navbar: botones apilados y centrados */
+  nav.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+  }
+  nav.navbar a {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border-radius: 12px;
+  }
+
+  /* Botones de comprar más grandes y con texto centrado */
+  .btn {
+    font-size: 1.1rem;
+    padding: 12px 20px;
+  }
+
+  /* Texto producto más pequeño y centrado */
+  .product-title {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  /* Ajusta el footer */
+  footer p {
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 5px 10px;
+  }
+
+  /* Ajusta el contenedor general para mejor margen */
+  .container {
+    padding: 10px 15px;
+  }
+
+  /* Soporte flotante a un costado con menos tamaño */
+  .btn-support {
+    bottom: 15px;
+    left: 15px;
+    font-size: 1.3rem;
+    padding: 10px 15px;
+  }
+
+  /* Header logo y tagline centrados y con menos tamaño */
+  header .logo {
+    font-size: 2rem;
+    text-align: center;
+  }
+  header .tagline {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* Ajusta "Quienes Somos" y testimonios para que se apilen verticalmente */
+  .about-testimonials {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0;
+  }
+  .about, .testimonials {
+    width: 100%;
+  }
+}
