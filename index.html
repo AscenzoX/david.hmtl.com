@@ -1,123 +1,240 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Venta de Discord Nitro y Boosts</title>
-    <link rel="stylesheet" href="style.css" />
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-      rel="stylesheet"
-    /><link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Venta de Discord Nitro y Boosts</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" type="image/png" />
 </head>
 <body>
-    <nav class="navbar">
-  <a href="#discord-nitro">Inicio</a>
-  <a href="#ropa-armas">Ropa y Armas Personalizadas</a>
-</nav>
-    <button id="dark-toggle" aria-label="Toggle Dark Mode">🌓</button>
 
-    <div class="container">
-        <header>
-            <h1 class="logo">D3 - Discord Nitro & Boosts</h1>
-            <p class="tagline">Si quieres el mejor servicio,debes buscar donde los mejores.</p>
-</section>
+  <nav class="navbar">
+    <a href="#" onclick="mostrarSeccion('nitro')">Inicio</a>
+    <a href="#" onclick="mostrarSeccion('ropa')">Ropa y Armas Personalizadas</a>
+  </nav>
 
-        </header>
+  <button id="dark-toggle" aria-label="Toggle Dark Mode">🌓</button>
 
-        <section class="products">
-            <article class="product-card">
-                <h2 class="product-title">Discord Nitro 1 Mes</h2>
-                <p class="product-price">5.00 <span class="price-small">EUR</span></p>
-                <button class="btn btn-discord" onclick="openDiscord('Nitro 1 Mes')">
-                    <i class="fab fa-discord"></i> Comprar vía Discord
-                </button>
-            </article>
+  <div class="container">
+    <!-- SECCION DISCORD NITRO -->
+    <section id="nitro-section" class="seccion">
+      <header>
+        <h1 class="logo">D3 - Discord Nitro & Boosts</h1>
+        <p class="tagline">Si quieres el mejor servicio,debes buscar donde los mejores.</p>
+      </header>
 
-            <article class="product-card">
-                <div class="badge">Popular</div>
-                <h2 class="product-title">Discord Nitro 3 Meses</h2>
-                <p class="product-price">10.00 <span class="price-small">EUR</span></p>
-                <button class="btn btn-discord" onclick="openDiscord('Nitro 3 Meses')">
-                    <i class="fab fa-discord"></i> Comprar vía Discord
-                </button>
-            </article>
+      <section class="products">
+        <article class="product-card">
+          <h2 class="product-title">Discord Nitro 1 Mes</h2>
+          <p class="product-price">5.00 <span class="price-small">EUR</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Nitro 1 Mes')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
 
-            <article class="product-card">
-                <h2 class="product-title">Server Boost 1 Mes</h2>
-                <p class="product-price">5.00 <span class="price-small">USD</span></p>
-                <button class="btn btn-discord" onclick="openDiscord('Server Boost 1 Mes')">
-                    <i class="fab fa-discord"></i> Comprar vía Discord
-                </button>
-            </article>
+        <article class="product-card">
+          <div class="badge">Popular</div>
+          <h2 class="product-title">Discord Nitro 3 Meses</h2>
+          <p class="product-price">10.00 <span class="price-small">EUR</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Nitro 3 Meses')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
 
-            <article class="product-card">
-                <h2 class="product-title">Server Boost 3 Meses</h2>
-                <p class="product-price">10.00 <span class="price-small">EUR</span></p>
-                <button class="btn btn-discord" onclick="openDiscord('Server Boost 3 Meses')">
-                    <i class="fab fa-discord"></i> Comprar vía Discord
-                </button>
-            </article>
-        </section>        
-     
-        <footer>
-            <p>© 2025 COS. Todos los derechos reservados.</p>
-            <p class="contact">Contacto: <span class="highlight">Discord @davida61</span></p>
-        </footer>
+        <article class="product-card">
+          <h2 class="product-title">Server Boost 1 Mes</h2>
+          <p class="product-price">5.00 <span class="price-small">USD</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Server Boost 1 Mes')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
+
+        <article class="product-card">
+          <h2 class="product-title">Server Boost 3 Meses</h2>
+          <p class="product-price">10.00 <span class="price-small">EUR</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Server Boost 3 Meses')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
+      </section>
+
+<div class="info-row">
+  <div class="info-box testimonios-lateral">
+    <button onclick="toggleSection('testimonios')">Mostrar/Ocultar Testimonios</button>
+    <div id="testimonios" class="content-visible">
+      <h3>Testimonios</h3>
+      <div class="review">
+        <p>"Servicio rápido y confiable, Nitro en menos de 10 minutos."</p>
+        <span>— @Juanito23</span>
+      </div>
+      <div class="review">
+        <p>"Mis armas personalizadas quedaron increíbles, recomendado."</p>
+        <span>— @XxSniperColxX</span>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Función para abrir Discord con mensaje personalizado (link directo al servidor)
-        function openDiscord(product) {
-            // Aquí podrías agregar lógica si quieres mandar el producto, pero el enlace es fijo
-            const discordLink = "https://discord.gg/abPtf2uC";
-            window.open(discordLink, "_blank");
+  <div class="info-box quienes-somos-derecha">
+    <button onclick="toggleSection('quienes-somos')">Mostrar/Ocultar ¿Quiénes Somos?</button>
+    <div id="quienes-somos" class="content-visible">
+      <h3>¿Quiénes Somos?</h3>
+      <p>Los mejores sin duda alguna</p>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+      <img src="https://cdn1.epicgames.com/offer/5f3c898b2a3244af99e9900e015717f8/EGS_Discord_Nitro_2560x1440_withlogo_2560x1440-944994658df3b04d0c4940be832da19e_2560x1440-944994658df3b04d0c4940be832da19e" alt="Fondo cohete Discord Nitro" class="bg-rocket" />
+    </section>
+
+    <!-- SECCION ROPA Y ARMAS -->
+    <section id="ropa-section" class="seccion hidden">
+      <header>
+        <h1 class="logo">Ropa & Armas Personalizadas</h1>
+        <p class="tagline">Estilo y diseño únicos a tu alcance.</p>
+      </header>
+
+      <section class="products">
+        <article class="product-card">
+          <h2 class="product-title">Camiseta Personalizada</h2>
+          <p class="product-price">11.00 <span class="price-small">EUR</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Camiseta Personalizada')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
+
+        <article class="product-card">
+          <h2 class="product-title">Chaqueta con Diseño</h2>
+          <p class="product-price">17.00 <span class="price-small">EUR</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Chaqueta con Diseño')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
+
+        <article class="product-card">
+          <h2 class="product-title">Arma Airsoft Decorativa</h2>
+          <p class="product-price">30.00 <span class="price-small">EUR</span></p>
+          <button class="btn btn-discord" onclick="openDiscord('Arma Airsoft Decorativa')">
+            <i class="fab fa-discord"></i> Comprar vía Discord
+          </button>
+        </article>
+      </section>
+    </section>
+
+    <footer>
+      <p>© 2025 COS. Todos los derechos reservados.</p>
+      <p class="contact">Contacto: <span class="highlight">Discord @davida61</span></p>
+    </footer>
+  </div>
+
+  <a href="https://discord.gg/abPtf2uC" target="_blank" class="btn-support" aria-label="Soporte Discord">
+    <i class="fas fa-headset"></i> Soporte
+  </a>
+  <a href="#" class="btn-nitro" title="Ver Nitro">
+    <i class="fas fa-rocket"></i>
+  </a>
+
+  <script>
+    function openDiscord(product) {
+      const discordLink = "https://discord.gg/abPtf2uC";
+      window.open(discordLink, "_blank");
+    }
+
+    document.getElementById('dark-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+
+    function mostrarSeccion(seccion) {
+      const nitro = document.getElementById('nitro-section');
+      const ropa = document.getElementById('ropa-section');
+
+      if (seccion === 'nitro') {
+        nitro.classList.remove('hidden');
+        ropa.classList.add('hidden');
+      } else if (seccion === 'ropa') {
+        ropa.classList.remove('hidden');
+        nitro.classList.add('hidden');
+      }
+    }
+
+    const products = document.querySelectorAll('.product-card');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
+      });
+    }, { threshold: 0.1 });
 
-        // Dark mode toggle
-        const toggle = document.getElementById('dark-toggle');
-        toggle.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-        });
+    products.forEach(product => observer.observe(product));
+  </script>
 
-        // Animación scroll para productos
-        const products = document.querySelectorAll('.product-card');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
+  <style>
+    .hidden { display: none; }
+    .navbar {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+    }
+    .navbar a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      padding: 20px;
+    }
+    .product-card {
+      background: #2a2a2a;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 300px;
+      color: white;
+      box-shadow: 0 0 10px #000;
+    }
+    .btn-discord {
+      background-color: #5865F2;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .btn-discord:hover {
+      background-color: #4752c4;
+    }
+    .logo {
+      font-size: 2em;
+      text-align: center;
+    }
+    .tagline {
+      text-align: center;
+      font-style: italic;
+      color: #aaa;
+    }
+    .bg-rocket {
+      max-width: 100%;
+      display: block;
+      margin: 40px auto;
+      border-radius: 15px;
+    }
 
-        products.forEach(product => observer.observe(product));
-    </script>
-<a href="https://discord.gg/abPtf2uC" target="_blank" class="btn-support" aria-label="Soporte Discord">
-  <i class="fas fa-headset"></i> Soporte
-</a>
-<div id="support-chat" class="hidden">
-  <div class="chat-header">
-    <!-- Botón flotante estilo Discord con ícono de cohete -->
-<a href="#" class="btn-nitro" title="Ver Nitro">
-  <i class="fas fa-rocket"></i>
-</a>
-<div class="testimonios-lateral">
-  <h3>Testimonios</h3>
-  <div class="review">
-    <p>"Servicio rápido y confiable, Nitro en menos de 10 minutos."</p>
-    <span>— @Juanito23</span>
-  </div>
-  <div class="review">
-    <p>"Mis armas personalizadas quedaron increíbles, recomendado."</p>
-    <span>— @XxSniperColxX</span>
-  </div>
-</div>
-<div class="quienes-somos-derecha">
-  <h3>¿Quiénes Somos?</h3>
-  <p>Los mejores sin duda alguna</p>
-</div>
-<img src="https://cdn1.epicgames.com/offer/5f3c898b2a3244af99e9900e015717f8/EGS_Discord_Nitro_2560x1440_withlogo_2560x1440-944994658df3b04d0c4940be832da19e_2560x1440-944994658df3b04d0c4940be832da19e" alt="Fondo cohete Discord Nitro" class="bg-rocket" />
+    /* Cambio para que los precios se vean en blanco */
+    .product-price {
+      color: white !important;
+    }
+  </style>
+  
+
 </body>
+</html>
+
 </html>
 
