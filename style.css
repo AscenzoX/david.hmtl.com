@@ -1169,3 +1169,77 @@ button:hover {
     flex: 1 1 100%;
   }
 }
+.btn-support {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #5865F2;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 30px; /* redondeado en PC */
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  text-decoration: none;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.btn-support:hover {
+  background-color: #4752c4;
+}
+
+/* En móviles, hacemos que solo sea un círculo con icono */
+@media (max-width: 600px) {
+  .btn-support {
+    padding: 0;            /* quitar padding para que sea cuadrado */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;    /* círculo perfecto */
+    justify-content: center; /* centrar icono horizontal */
+  }
+  .btn-support i {
+    margin: 0;             /* quitar margen si tiene */
+    font-size: 24px;       /* tamaño adecuado para móvil */
+  }
+  .btn-support::after {
+    content: "";           /* eliminar texto del botón en móvil */
+  }
+  /* Ocultamos el texto dentro del botón */
+  .btn-support > span {
+    display: none;
+  }
+}
+/* Estilos para Testimonios y ¿Quiénes Somos? en móvil */
+@media (max-width: 600px) {
+  /* Contenedores */
+  .info-box.testimonios-lateral,
+  .info-box.quienes-somos-derecha {
+    max-height: 150px; /* limitar altura */
+    overflow-y: auto;  /* permitir scroll interno si hay mucho contenido */
+    padding: 10px;
+    font-size: 0.85rem; /* texto más pequeño */
+  }
+
+  /* Botones para ocultar también más pequeños */
+  #btn-testimonios,
+  #btn-quienes {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+
+  /* Reducir márgenes y espacios internos */
+  .info-box h3 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .info-box p,
+  .info-box .review p,
+  .info-box .review span {
+    font-size: 0.8rem;
+  }
+}
