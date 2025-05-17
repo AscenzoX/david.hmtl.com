@@ -414,3 +414,45 @@ document.addEventListener('DOMContentLoaded', () => {
     handleStep('start');
   }
 });
+// Suponiendo que tienes un contenedor con id 'contenido-principal'
+const contenidoPrincipal = document.getElementById('contenido-principal');
+
+// Función para mostrar el contenido de Ropa y armas personalizadas con imágenes
+function mostrarRopaArmas() {
+  contenidoPrincipal.innerHTML = `
+    <h2>Ropa y armas personalizadas</h2>
+    <p>Aquí puedes ver nuestras opciones de ropa y armas personalizadas.</p>
+    <div class="productos">
+      <div class="producto">
+        <img src="imagenes/camisa.jpg" alt="Camisa personalizada" width="200" />
+        <p>Camisa personalizada</p>
+      </div>
+      <div class="producto">
+        <img src="imagenes/arma.jpg" alt="Arma personalizada" width="200" />
+        <p>Arma personalizada</p>
+      </div>
+    </div>
+  `;
+}
+
+// Función para mostrar el contenido principal (por ejemplo, inicio o default)
+function mostrarInicio() {
+  contenidoPrincipal.innerHTML = `
+    <h2>Bienvenido</h2>
+    <p>Contenido principal inicial aquí...</p>
+  `;
+}
+
+// Escuchar el botón que activa "Ropa y armas perso"
+document.getElementById('btn-ropa-armas').addEventListener('click', () => {
+  mostrarRopaArmas();
+});
+function toggleSection(id) {
+  const section = document.getElementById(id);
+  section.classList.toggle('hidden');
+}
+function toggleSection(id) {
+  const section = document.getElementById(id);
+  section.classList.toggle('hidden');
+}
+
