@@ -14,7 +14,6 @@
 <body>
     <nav class="navbar">
   <a href="#discord-nitro">Inicio</a>
-  
   <a href="#ropa-armas">Ropa y Armas Personalizadas</a>
 </nav>
     <button id="dark-toggle" aria-label="Toggle Dark Mode">🌓</button>
@@ -31,8 +30,8 @@
             <article class="product-card">
                 <h2 class="product-title">Discord Nitro 1 Mes</h2>
                 <p class="product-price">5.00 <span class="price-small">EUR</span></p>
-                <button class="btn btn-whatsapp" onclick="openWhatsApp('Nitro 1 Mes')">
-                    <i class="fab fa-whatsapp"></i> Comprar vía WhatsApp
+                <button class="btn btn-discord" onclick="openDiscord('Nitro 1 Mes')">
+                    <i class="fab fa-discord"></i> Comprar vía Discord
                 </button>
             </article>
 
@@ -40,41 +39,40 @@
                 <div class="badge">Popular</div>
                 <h2 class="product-title">Discord Nitro 3 Meses</h2>
                 <p class="product-price">10.00 <span class="price-small">EUR</span></p>
-                <button class="btn btn-whatsapp" onclick="openWhatsApp('Nitro 3 Meses')">
-                    <i class="fab fa-whatsapp"></i> Comprar vía WhatsApp
+                <button class="btn btn-discord" onclick="openDiscord('Nitro 3 Meses')">
+                    <i class="fab fa-discord"></i> Comprar vía Discord
                 </button>
             </article>
 
             <article class="product-card">
                 <h2 class="product-title">Server Boost 1 Mes</h2>
                 <p class="product-price">5.00 <span class="price-small">USD</span></p>
-                <button class="btn btn-whatsapp" onclick="openWhatsApp('Server Boost 1 Mes')">
-                    <i class="fab fa-whatsapp"></i> Comprar vía WhatsApp
+                <button class="btn btn-discord" onclick="openDiscord('Server Boost 1 Mes')">
+                    <i class="fab fa-discord"></i> Comprar vía Discord
                 </button>
             </article>
 
             <article class="product-card">
                 <h2 class="product-title">Server Boost 3 Meses</h2>
                 <p class="product-price">10.00 <span class="price-small">EUR</span></p>
-                <button class="btn btn-whatsapp" onclick="openWhatsApp('Server Boost 3 Meses')">
-                    <i class="fab fa-whatsapp"></i> Comprar vía WhatsApp
+                <button class="btn btn-discord" onclick="openDiscord('Server Boost 3 Meses')">
+                    <i class="fab fa-discord"></i> Comprar vía Discord
                 </button>
             </article>
         </section>        
      
         <footer>
             <p>© 2025 COS. Todos los derechos reservados.</p>
-            <p class="contact">Contacto: <span class="highlight">+57 313 875 7150</span></p>
+            <p class="contact">Contacto: <span class="highlight">Discord @davida61</span></p>
         </footer>
     </div>
 
     <script>
-        // Función para abrir WhatsApp con mensaje personalizado
-        function openWhatsApp(product) {
-            const phone = "+573138757150"; // Cambia por tu número real
-            const message = `Hola, quiero comprar: ${product}`;
-            const url = `https://wa.me/${phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
-            window.open(url, "_blank");
+        // Función para abrir Discord con mensaje personalizado (link directo al servidor)
+        function openDiscord(product) {
+            // Aquí podrías agregar lógica si quieres mandar el producto, pero el enlace es fijo
+            const discordLink = "https://discord.gg/abPtf2uC";
+            window.open(discordLink, "_blank");
         }
 
         // Dark mode toggle
@@ -95,7 +93,7 @@
 
         products.forEach(product => observer.observe(product));
     </script>
-<a href="https://wa.me/+573138757150" target="_blank" class="btn-support" aria-label="Soporte WhatsApp">
+<a href="https://discord.gg/abPtf2uC" target="_blank" class="btn-support" aria-label="Soporte Discord">
   <i class="fas fa-headset"></i> Soporte
 </a>
 <div id="support-chat" class="hidden">
@@ -104,5 +102,21 @@
 <a href="#" class="btn-nitro" title="Ver Nitro">
   <i class="fas fa-rocket"></i>
 </a>
+<div class="testimonios-lateral">
+  <h3>Testimonios</h3>
+  <div class="review">
+    <p>"Servicio rápido y confiable, Nitro en menos de 10 minutos."</p>
+    <span>— @Juanito23</span>
+  </div>
+  <div class="review">
+    <p>"Mis armas personalizadas quedaron increíbles, recomendado."</p>
+    <span>— @XxSniperColxX</span>
+  </div>
+</div>
+<div class="quienes-somos-derecha">
+  <h3>¿Quiénes Somos?</h3>
+  <p>Los mejores sin duda alguna</p>
+</div>
+<img src="https://cdn1.epicgames.com/offer/5f3c898b2a3244af99e9900e015717f8/EGS_Discord_Nitro_2560x1440_withlogo_2560x1440-944994658df3b04d0c4940be832da19e_2560x1440-944994658df3b04d0c4940be832da19e" alt="Fondo cohete Discord Nitro" class="bg-rocket" />
 </body>
 </html>
