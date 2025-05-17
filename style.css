@@ -524,3 +524,34 @@ body {
 .btn-personalizado:hover {
   background: #404EED;
 }
+/* ===== Responsive para secciones personalizadas ===== */
+@media (max-width: 768px) {
+  .inicio-section {
+    padding: 3rem 1rem;
+  }
+
+  .personalizados-opciones {
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .btn-personalizado {
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .inicio-section {
+    padding: 2rem 1rem;
+  }
+
+  .btn-personalizado {
+    font-size: 1rem;
+    padding: 0.9rem 1.25rem;
+  }
+}
