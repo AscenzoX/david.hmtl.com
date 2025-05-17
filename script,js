@@ -1,4 +1,4 @@
-// ✅ 1. Mensaje al hacer clic en cualquier botón (ya lo tenías)
+// ✅ 1. Mensaje al hacer clic en cualquier botón
 document.querySelectorAll("button, .btn").forEach(btn => {
   btn.addEventListener("click", () => {
     alert("Pronto se habilitará el pago automático. Contáctanos por WhatsApp para comprar.");
@@ -8,7 +8,6 @@ document.querySelectorAll("button, .btn").forEach(btn => {
 // ✅ 2. Animaciones al hacer scroll (fade in a las tarjetas)
 document.addEventListener("DOMContentLoaded", () => {
   const elements = document.querySelectorAll('.product-card');
-
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -17,11 +16,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
   elements.forEach(el => observer.observe(el));
 });
 
-// ✅ 3. Dark Mode toggle
+// ✅ 3. Modo Oscuro
 const toggle = document.getElementById('dark-toggle');
 if (toggle) {
   toggle.addEventListener('click', () => {
@@ -30,22 +28,21 @@ if (toggle) {
   });
 }
 
-// ✅ 4. Contador animado de entregas
+// ✅ 4. Contador animado
 function animateCounter(id, end, duration) {
   let start = 0;
   const stepTime = Math.abs(Math.floor(duration / end));
   const obj = document.getElementById(id);
   if (!obj) return;
-
   const timer = setInterval(() => {
     start++;
-    obj.innerText = start.toLocaleString(); // separador de miles
+    obj.innerText = start.toLocaleString();
     if (start >= end) clearInterval(timer);
   }, stepTime);
 }
 animateCounter("counter", 1200, 1000);
 
-// ✅ 5. Copiar WhatsApp al portapapeles
+// ✅ 5. Copiar número de WhatsApp
 function copyText(text) {
   navigator.clipboard.writeText(text).then(() => {
     alert("Número copiado al portapapeles ✅");
@@ -53,6 +50,8 @@ function copyText(text) {
     console.error("Error al copiar:", err);
   });
 }
+
+// ✅ 6. CHAT DE SOPORTE INTERACTIVO
 document.addEventListener('DOMContentLoaded', () => {
   const supportBtn = document.getElementById('support-btn');
   const chat = document.getElementById('support-chat');
@@ -60,7 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.getElementById('chat-messages');
   const chatOptions = document.getElementById('chat-options');
 
-  // Conversación predeterminada
   const conversation = {
     start: {
       message: 'Hola 👋, ¿en qué podemos ayudarte hoy?',
@@ -89,14 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
     contacto: {
       message: 'Puedes contactarnos vía WhatsApp haciendo clic aquí:',
       options: [
-        { text: 'Abrir WhatsApp', next: 'end', action: () => {
-          window.open('https://wa.me/1234567890', '_blank');
-        }},
+        {
+          text: 'Abrir WhatsApp', next: 'end', action: () => {
+            window.open('https://wa.me/1234567890', '_blank');
+          }
+        },
         { text: 'Volver al inicio', next: 'start' },
       ]
     },
     pedido: {
-      message: 'Por favor espera 24 horas, si no recibes tu pedido después de ese tiempo, contáctanos.',
+      message: 'Por favor espera 24 horas. Si no recibes tu pedido después de ese tiempo, contáctanos.',
       options: [
         { text: 'Volver al inicio', next: 'start' }
       ]
@@ -104,30 +104,25 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelar: {
       message: 'Para cancelar una orden, envíanos tu número de pedido por WhatsApp.',
       options: [
-        { text: 'Abrir WhatsApp', next: 'end', action: () => {
-          window.open('https://wa.me/1234567890', '_blank');
-        }},
+        {
+          text: 'Abrir WhatsApp', next: 'end', action: () => {
+            window.open('https://wa.me/1234567890', '_blank');
+          }
+        },
         { text: 'Volver al inicio', next: 'start' },
       ]
     },
     nitro: {
-      message: 'El Discord Nitro te da muchas ventajas, ¿quieres saber más?',
+      message: 'El Discord Nitro ofrece emojis personalizados, mejor calidad y más. ¿Quieres comprar?',
       options: [
-        { text: 'Sí, más info', next: 'infoNitro' },
+        { text: 'Sí, comprar', next: 'contacto' },
         { text: 'Volver al inicio', next: 'start' },
       ]
     },
     boost: {
-      message: 'El Server Boost mejora tu servidor. ¿Quieres saber precios?',
+      message: 'Server Boost mejora tu servidor. ¿Quieres precios?',
       options: [
         { text: 'Sí, precios', next: 'preciosBoost' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    infoNitro: {
-      message: 'Discord Nitro ofrece emojis personalizados, mejor calidad y más. ¿Quieres comprar?',
-      options: [
-        { text: 'Sí, comprar', next: 'contacto' },
         { text: 'Volver al inicio', next: 'start' },
       ]
     },
@@ -144,19 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  // Mostrar el chat u ocultarlo
-  supportBtn.addEventListener('click', () => {
-    chat.classList.toggle('hidden');
-    if (!chat.classList.contains('hidden')) {
-      startChat();
-    }
-  });
-
-  closeChatBtn.addEventListener('click', () => {
-    chat.classList.add('hidden');
-  });
-
-  // Función para mostrar un mensaje del bot
   function addBotMessage(text) {
     const msg = document.createElement('div');
     msg.classList.add('chat-message', 'bot-message');
@@ -165,7 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
     chatMessages.scrollTop = chatMessages.scrollHeight;
   }
 
-  // Función para mostrar una opción seleccionable
+  function addUserMessage(text) {
+    const msg = document.createElement('div');
+    msg.classList.add('chat-message', 'user-message');
+    msg.textContent = text;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
   function addOptionButton(text, onClick) {
     const btn = document.createElement('button');
     btn.textContent = text;
@@ -173,12 +162,10 @@ document.addEventListener('DOMContentLoaded', () => {
     chatOptions.appendChild(btn);
   }
 
-  // Limpiar opciones y mensajes si quieres (pero en este caso solo opciones)
   function clearOptions() {
     chatOptions.innerHTML = '';
   }
 
-  // Función para manejar cada paso de la conversación
   function handleStep(stepKey) {
     clearOptions();
     if (!conversation[stepKey]) return;
@@ -186,7 +173,6 @@ document.addEventListener('DOMContentLoaded', () => {
     addBotMessage(step.message);
 
     if (step.options.length === 0) {
-      // Finalizar chat si no hay opciones
       addOptionButton('Cerrar chat', () => {
         chat.classList.add('hidden');
         chatMessages.innerHTML = '';
@@ -206,219 +192,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Mostrar mensaje usuario
-  function addUserMessage(text) {
-    const msg = document.createElement('div');
-    msg.classList.add('chat-message', 'user-message');
-    msg.textContent = text;
-    chatMessages.appendChild(msg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  // Iniciar chat
   function startChat() {
     chatMessages.innerHTML = '';
     clearOptions();
     handleStep('start');
   }
-});
-const supportBtn = document.getElementById('support-btn'); // ID de tu botón soporte
-const supportChat = document.getElementById('support-chat');
-const closeChatBtn = document.getElementById('close-chat');
-const chatBody = document.getElementById('chat-body');
 
-supportBtn.addEventListener('click', () => {
-  supportChat.classList.toggle('hidden');
-});
-
-closeChatBtn.addEventListener('click', () => {
-  supportChat.classList.add('hidden');
-});
-
-chatBody.addEventListener('click', e => {
-  if (e.target.classList.contains('chat-option')) {
-    const answer = e.target.getAttribute('data-answer');
-    const response = document.createElement('div');
-    response.classList.add('chat-message');
-    response.textContent = answer;
-    chatBody.appendChild(response);
-    chatBody.scrollTop = chatBody.scrollHeight;
-  }
-});
-document.addEventListener('DOMContentLoaded', () => {
-  const supportBtn = document.getElementById('support-btn');
-  const chat = document.getElementById('support-chat');
-  const closeChatBtn = document.getElementById('close-chat');
-  const chatMessages = document.getElementById('chat-messages');
-  const chatOptions = document.getElementById('chat-options');
-
-  // Conversación predeterminada
-  const conversation = {
-    start: {
-      message: 'Hola 👋, ¿en qué podemos ayudarte hoy?',
-      options: [
-        { text: 'Problemas con compra', next: 'compra' },
-        { text: 'Dudas sobre producto', next: 'producto' },
-        { text: 'Contacto directo', next: 'contacto' },
-      ]
-    },
-    compra: {
-      message: '¿Qué problema tienes con la compra?',
-      options: [
-        { text: 'No recibí mi pedido', next: 'pedido' },
-        { text: 'Quiero cancelar una orden', next: 'cancelar' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    producto: {
-      message: '¿Sobre qué producto tienes dudas?',
-      options: [
-        { text: 'Discord Nitro', next: 'nitro' },
-        { text: 'Server Boost', next: 'boost' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    contacto: {
-      message: 'Puedes contactarnos vía WhatsApp haciendo clic aquí:',
-      options: [
-        { text: 'Abrir WhatsApp', next: 'end', action: () => {
-          window.open('https://wa.me/1234567890', '_blank');
-        }},
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    pedido: {
-      message: 'Por favor espera 24 horas, si no recibes tu pedido después de ese tiempo, contáctanos.',
-      options: [
-        { text: 'Volver al inicio', next: 'start' }
-      ]
-    },
-    cancelar: {
-      message: 'Para cancelar una orden, envíanos tu número de pedido por WhatsApp.',
-      options: [
-        { text: 'Abrir WhatsApp', next: 'end', action: () => {
-          window.open('https://wa.me/1234567890', '_blank');
-        }},
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    nitro: {
-      message: 'El Discord Nitro te da muchas ventajas, ¿quieres saber más?',
-      options: [
-        { text: 'Sí, más info', next: 'infoNitro' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    boost: {
-      message: 'El Server Boost mejora tu servidor. ¿Quieres saber precios?',
-      options: [
-        { text: 'Sí, precios', next: 'preciosBoost' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    infoNitro: {
-      message: 'Discord Nitro ofrece emojis personalizados, mejor calidad y más. ¿Quieres comprar?',
-      options: [
-        { text: 'Sí, comprar', next: 'contacto' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    preciosBoost: {
-      message: 'Server Boosts desde $3.99 al mes. ¿Quieres comprar?',
-      options: [
-        { text: 'Sí, comprar', next: 'contacto' },
-        { text: 'Volver al inicio', next: 'start' },
-      ]
-    },
-    end: {
-      message: 'Gracias por contactarnos. ¡Que tengas un buen día! 😊',
-      options: []
-    }
-  };
-
-  // Mostrar el chat u ocultarlo
   supportBtn.addEventListener('click', () => {
     chat.classList.toggle('hidden');
-    if (!chat.classList.contains('hidden')) {
-      startChat();
-    }
+    if (!chat.classList.contains('hidden')) startChat();
   });
 
   closeChatBtn.addEventListener('click', () => {
     chat.classList.add('hidden');
   });
-
-  // Función para mostrar un mensaje del bot
-  function addBotMessage(text) {
-    const msg = document.createElement('div');
-    msg.classList.add('chat-message', 'bot-message');
-    msg.textContent = text;
-    chatMessages.appendChild(msg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  // Función para mostrar una opción seleccionable
-  function addOptionButton(text, onClick) {
-    const btn = document.createElement('button');
-    btn.textContent = text;
-    btn.addEventListener('click', onClick);
-    chatOptions.appendChild(btn);
-  }
-
-  // Limpiar opciones y mensajes si quieres (pero en este caso solo opciones)
-  function clearOptions() {
-    chatOptions.innerHTML = '';
-  }
-
-  // Función para manejar cada paso de la conversación
-  function handleStep(stepKey) {
-    clearOptions();
-    if (!conversation[stepKey]) return;
-    const step = conversation[stepKey];
-    addBotMessage(step.message);
-
-    if (step.options.length === 0) {
-      // Finalizar chat si no hay opciones
-      addOptionButton('Cerrar chat', () => {
-        chat.classList.add('hidden');
-        chatMessages.innerHTML = '';
-        clearOptions();
-      });
-      return;
-    }
-
-    step.options.forEach(opt => {
-      addOptionButton(opt.text, () => {
-        addUserMessage(opt.text);
-        if (opt.action) opt.action();
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-        chatOptions.innerHTML = '';
-        setTimeout(() => handleStep(opt.next), 700);
-      });
-    });
-  }
-
-  // Mostrar mensaje usuario
-  function addUserMessage(text) {
-    const msg = document.createElement('div');
-    msg.classList.add('chat-message', 'user-message');
-    msg.textContent = text;
-    chatMessages.appendChild(msg);
-    chatMessages.scrollTop = chatMessages.scrollHeight;
-  }
-
-  // Iniciar chat
-  function startChat() {
-    chatMessages.innerHTML = '';
-    clearOptions();
-    handleStep('start');
-  }
 });
-// Suponiendo que tienes un contenedor con id 'contenido-principal'
+
+// ✅ 7. Sección "Ropa y armas personalizadas"
 const contenidoPrincipal = document.getElementById('contenido-principal');
-
-// Función para mostrar el contenido de Ropa y armas personalizadas con imágenes
-function mostrarRopaArmas() {
+document.getElementById('btn-ropa-armas').addEventListener('click', () => {
   contenidoPrincipal.innerHTML = `
     <h2>Ropa y armas personalizadas</h2>
     <p>Aquí puedes ver nuestras opciones de ropa y armas personalizadas.</p>
@@ -433,9 +225,9 @@ function mostrarRopaArmas() {
       </div>
     </div>
   `;
-}
+});
 
-// Función para mostrar el contenido principal (por ejemplo, inicio o default)
+// ✅ 8. Volver al inicio
 function mostrarInicio() {
   contenidoPrincipal.innerHTML = `
     <h2>Bienvenido</h2>
@@ -443,16 +235,13 @@ function mostrarInicio() {
   `;
 }
 
-// Escuchar el botón que activa "Ropa y armas perso"
-document.getElementById('btn-ropa-armas').addEventListener('click', () => {
-  mostrarRopaArmas();
-});
-function toggleSection(id) {
-  const section = document.getElementById(id);
+// ✅ 9. Alternar secciones (¿Quiénes Somos? / Testimonios)
+function toggleSection(sectionId, buttonId) {
+  const section = document.getElementById(sectionId);
+  const button = document.getElementById(buttonId);
+  const showing = !section.classList.contains('hidden');
   section.classList.toggle('hidden');
+  button.textContent = showing
+    ? (sectionId === 'quienes' ? 'Mostrar ¿Quiénes Somos?' : 'Mostrar Testimonios')
+    : (sectionId === 'quienes' ? 'Ocultar ¿Quiénes Somos?' : 'Ocultar Testimonios');
 }
-function toggleSection(id) {
-  const section = document.getElementById(id);
-  section.classList.toggle('hidden');
-}
-
