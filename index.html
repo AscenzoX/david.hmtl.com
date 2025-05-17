@@ -7,6 +7,115 @@
   <link rel="stylesheet" href="style.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
   <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2111/2111370.png" type="image/png" />
+  <style>
+    /* Mantenemos estilos que ya tienes y agregamos para toggle */
+    .hidden { display: none; }
+    .content-visible { display: block; }
+
+    .navbar {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+    }
+    .navbar a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .navbar a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      padding: 20px;
+    }
+    .product-card {
+      background: #2a2a2a;
+      margin: 20px auto;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 300px;
+      color: white;
+      box-shadow: 0 0 10px #000;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .product-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .btn-discord {
+      background-color: #5865F2;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .btn-discord:hover {
+      background-color: #4752c4;
+    }
+    .logo {
+      font-size: 2em;
+      text-align: center;
+    }
+    .tagline {
+      text-align: center;
+      font-style: italic;
+      color: #aaa;
+    }
+    .bg-rocket {
+      max-width: 100%;
+      display: block;
+      margin: 40px auto;
+      border-radius: 15px;
+    }
+    .product-price {
+      color: white !important;
+    }
+    /* Botones dentro de info-box */
+    .info-box button {
+      background-color: #5865F2;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-bottom: 10px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .info-box button:hover {
+      background-color: #4752c4;
+    }
+    /* Layout de testimonios y quienes somos */
+    .info-row {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+    .info-box {
+      background: #2a2a2a;
+      color: white;
+      padding: 15px;
+      border-radius: 12px;
+      max-width: 350px;
+      box-shadow: 0 0 10px #000;
+    }
+    .review {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+    .review span {
+      display: block;
+      margin-top: 5px;
+      font-weight: bold;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
 
@@ -60,32 +169,31 @@
         </article>
       </section>
 
-<div class="info-row">
-  <div class="info-box testimonios-lateral">
-    <button onclick="toggleSection('testimonios')">Mostrar/Ocultar Testimonios</button>
-    <div id="testimonios" class="content-visible">
-      <h3>Testimonios</h3>
-      <div class="review">
-        <p>"Servicio rápido y confiable, Nitro en menos de 10 minutos."</p>
-        <span>— @Juanito23</span>
-      </div>
-      <div class="review">
-        <p>"Mis armas personalizadas quedaron increíbles, recomendado."</p>
-        <span>— @XxSniperColxX</span>
-      </div>
-    </div>
-  </div>
+      <div class="info-row">
+        <div class="info-box testimonios-lateral">
+          <button id="btn-testimonios" onclick="toggleSection('testimonios', 'btn-testimonios')">Ocultar Testimonios</button>
+          <div id="testimonios" class="content-visible">
+            <h3>Testimonios</h3>
+            <div class="review">
+              <p>"Servicio rápido y confiable, Nitro en menos de 10 minutos."</p>
+              <span>— @Juanito23</span>
+            </div>
+            <div class="review">
+              <p>"Mis armas personalizadas quedaron increíbles, recomendado."</p>
+              <span>— @XxSniperColxX</span>
+            </div>
+          </div>
+        </div>
 
-  <div class="info-box quienes-somos-derecha">
-    <button onclick="toggleSection('quienes-somos')">Mostrar/Ocultar ¿Quiénes Somos?</button>
-    <div id="quienes-somos" class="content-visible">
-      <h3>¿Quiénes Somos?</h3>
-      <p>Los mejores sin duda alguna</p>
-    </div>
-  </div>
-</div>
-  </div>
-</div>
+        <div class="info-box quienes-somos-derecha">
+          <button id="btn-quienes" onclick="toggleSection('quienes', 'btn-quienes')">Ocultar ¿Quiénes Somos?</button>
+          <div id="quienes" class="content-visible">
+            <h3>¿Quiénes Somos?</h3>
+            <p>Los mejores sin duda alguna</p>
+          </div>
+        </div>
+      </div>
+
       <img src="https://cdn1.epicgames.com/offer/5f3c898b2a3244af99e9900e015717f8/EGS_Discord_Nitro_2560x1440_withlogo_2560x1440-944994658df3b04d0c4940be832da19e_2560x1440-944994658df3b04d0c4940be832da19e" alt="Fondo cohete Discord Nitro" class="bg-rocket" />
     </section>
 
@@ -159,6 +267,28 @@
       }
     }
 
+    function toggleSection(sectionId, buttonId) {
+      const section = document.getElementById(sectionId);
+      const button = document.getElementById(buttonId);
+
+      if (section.classList.contains('hidden')) {
+        section.classList.remove('hidden');
+        // Cambiar texto según sección
+        if(sectionId === 'testimonios') {
+          button.textContent = 'Ocultar Testimonios';
+        } else if(sectionId === 'quienes') {
+          button.textContent = 'Ocultar ¿Quiénes Somos?';
+        }
+      } else {
+        section.classList.add('hidden');
+        if(sectionId === 'testimonios') {
+          button.textContent = 'Mostrar Testimonios';
+        } else if(sectionId === 'quienes') {
+          button.textContent = 'Mostrar ¿Quiénes Somos?';
+        }
+      }
+    }
+
     const products = document.querySelectorAll('.product-card');
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -171,70 +301,7 @@
     products.forEach(product => observer.observe(product));
   </script>
 
-  <style>
-    .hidden { display: none; }
-    .navbar {
-      background-color: #222;
-      padding: 10px;
-      text-align: center;
-    }
-    .navbar a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .navbar a:hover {
-      text-decoration: underline;
-    }
-    .container {
-      padding: 20px;
-    }
-    .product-card {
-      background: #2a2a2a;
-      margin: 20px auto;
-      padding: 20px;
-      border-radius: 15px;
-      max-width: 300px;
-      color: white;
-      box-shadow: 0 0 10px #000;
-    }
-    .btn-discord {
-      background-color: #5865F2;
-      color: white;
-      padding: 10px;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    .btn-discord:hover {
-      background-color: #4752c4;
-    }
-    .logo {
-      font-size: 2em;
-      text-align: center;
-    }
-    .tagline {
-      text-align: center;
-      font-style: italic;
-      color: #aaa;
-    }
-    .bg-rocket {
-      max-width: 100%;
-      display: block;
-      margin: 40px auto;
-      border-radius: 15px;
-    }
-
-    /* Cambio para que los precios se vean en blanco */
-    .product-price {
-      color: white !important;
-    }
-  </style>
-  
-
 </body>
 </html>
 
-</html>
 
